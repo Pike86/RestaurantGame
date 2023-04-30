@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html style="background-color:#0D1B2A">
+<head>
+<link rel="stylesheet" href="RestaurantGame.css">
+</head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<body style="background-color:#0D1B2A, max-height:98vh, overflow-y: hidden" onload="intervalFlashOpenButton">
+
+<!--------->
+<!--------->
+<!--Audio-->
+<!--------->
+<!--------->
+	
+	<!--------------->
+	<!--Click Sound-->
+	<!--------------->
+	<audio id="PlateClickSound">
+		<source src="Sounds/PlateClickSound.wav" type="audio/wav">
+	</audio>
+	
+	<!------------------------->
+	<!---Button Click Sounds--->
+	<!------------------------->
+	
+		<!------------------------>
+		<!--Button Click Sound 1-->
+		<!------------------------>
+		<audio id="buttonClickSound1">
+			<source src="Sounds/ButtonClickSound1.wav" type="audio/wav">
+		</audio>
+		
+		<!------------------------>
+		<!--Button Click Sound 2-->
+		<!------------------------>
+		<audio id="buttonClickSound2">
+			<source src="Sounds/ButtonClickSound2.wav" type="audio/wav">
+		</audio>
+	
+	<!--------------------->
+	<!---Card Flip Sound--->
+	<!--------------------->	
+		
+		<!--------------------->
+		<!--Card Flip Sound 1-->
+		<!--------------------->
+		<audio id="cardFlipSound1">
+			<source src="Sounds/CardFlipSound1.wav" type="audio/wav">	
+		</audio>
+		
+		<!--------------------->
+		<!--Card Flip Sound 1-->
+		<!--------------------->
+		<audio id="cardFlipSound2">
+			<source src="Sounds/CardFlipSound2.wav" type="audio/wav">	
+		</audio>
+		
+	<!----------------->	
+	<!--Tip Jar Sound-->
+	<!----------------->
+	<audio id="tipJarSound">
+		<source src="Sounds/TipJarSound.wav" type="audio/wav">	
+	</audio>
+
+	<!------------------------>
+	<!---Text Bubble Sounds--->
+	<!------------------------>
+		
+		<!------------------------>
+		<!---Left Bubble Sounds--->
+		<!------------------------>
+		
+			<!------------------------>
+			<!--Left Bubble; Sound 1-->
+			<!------------------------>
+			<audio id="leftSound1">
+				<source src="Sounds/LeftSoundOne.wav" type="audio/wav">	
+			</audio>
+			
+			<!------------------------>
+			<!--Left Bubble; Sound 2-->
+			<!------------------------>
+			<audio id="leftSound2">
+				<source src="Sounds/LeftSoundTwo.wav" type="audio/wav">	
+			</audio>
+			
+			<!------------------------>
+			<!--Left Bubble; Sound 3-->
+			<!------------------------>
+			<audio id="leftSound3">
+				<source src="Sounds/LeftSoundThree.wav" type="audio/wav">
+			</audio>
+	
+		<!------------------------->
+		<!---Right Bubble Sounds--->
+		<!------------------------->
+		
+			<!------------------------->
+			<!--Right Bubble; Sound 1-->
+			<!------------------------->
+			<audio id="rightSound1">
+				<source src="Sounds/RightSoundOne.wav" type="audio/wav">
+			</audio>
+			
+			<!------------------------->
+			<!--Right Bubble; Sound 2-->
+			<!------------------------->
+			<audio id="rightSound2">
+				<source src="Sounds/RightSoundTwo.wav" type="audio/wav">
+			</audio>
+			
+			<!------------------------->
+			<!--Right Bubble; Sound 3-->
+			<!------------------------->
+			<audio id="rightSound3">
+				<source src="Sounds/RightSoundThree.wav" type="audio/wav">
+			</audio>
+
+<!------------------>
+<!------------------>
+<!--Grid Container-->
+<!------------------>
+<!------------------>	
+<div class="grid-container">
+	
+	<!--------------------->
+	<!--Row 1: The Header-->
+	<!--------------------->
+	<div class="item1">
+		<h2 id="theTest">Restaurant</h2>
+	</div>
+  
+	<!----------------------------->
+	<!--Row 2A: Stage Breadcrumbs-->
+	<!----------------------------->
+	<div class="item2A">
+		<table id="stageTable">
+			<tr>
+				<th colspan="3" id="theDay" style="background-color:#0D1B2A; color:white; font-weight:bold; padding:0.5em">Day</th>
+			</tr>
+			<tr>
+				<td class="stageBox"><b>Phase 1</b>
+				<br>
+				Greet Customers
+				<span class="stageBoxCheck">&#x2713<span>
+				</td>
+				
+				<td class="stageBox"><b>Phase 2</b>
+				<br>
+				Deliver Food
+				<span class="stageBoxCheck">&#x2713<span>
+				</td>
+				
+				<td class="stageBox"><b>Phase 3</b>
+				<br>
+				Deliver Checks
+				<span class="stageBoxCheck">&#x2713<span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<!------------------->
+	<!--Row 2B: Tip Jar-->
+	<!------------------->
+	<div id="item2B" class="item2B">
+		<h2 id="theTips">Tip Jar: $0.00</h2>
+	</div>
+	
+	<!------------------->
+	<!--Row 3A: Table 1-->
+	<!------------------->
+	<div id="item3A" class="item3A">
+		<h2 class="tableHead">Table 1</h2>
+		
+		<!--The Table One Status Bar-->
+		<div>
+		<div id="myBar1" onmouseover="makeToolTipVisible(0,'Satisfaction')" onmouseleave="clearToolTip(0)">0</div>
+		</div>
+		
+		<!--The Table One Image-->
+		<div class="flip-box">
+			<div id="flipBoxTableOne" class="flipBoxTableOne">
+				<div id="flip-box-front" class="flip-box-front">
+					<img id="tableOneFront" src="Images/Restaurant_Images/TableBlue.png"></img>
+				</div>
+				<div id="flip-box-back" class="flip-box-back">
+					<img id="tableOne" ondrop = "drop(event,0)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)"></img>
+				</div>
+			</div>
+		</div>
+		
+		<!--The Table One Chat Box-->
+		<div id="theTableOneChatBox">
+			<div class="rightTextBubble" id="tableOneRight1"></div>
+			<div class="leftTextBubble" id="tableOneLeft1"></div>
+			<div class="rightTextBubble" id="tableOneRight2"></div>
+			<div class="leftTextBubble" id="tableOneLeft2"></div>
+		</div>
+		
+		<!--The Table One Greeting Buttons-->
+		<div id="tableOneGreetingButtons">
+			<button id="tableOneGreetByNameButton" class="buttonTypeA" onmouseover="makeToolTipVisible(0,'Greeting')" onmouseleave="clearToolTip(0)" onclick="playClickSound(), setTimeout(greetCustomerByNameLayout, 200, 0), setTimeout(selectInputField,400,'Greet',0)">Hello, [Name]
+			</button>
+			<button id="tableOneAskForNameButton" class="buttonTypeB" onmouseover="makeToolTipVisible(0,'AskForName')" onmouseleave="clearToolTip(0)" onclick="playClickSound(),clearToolTip(0),setTimeout(askForCustomerName,300,0)">  Ask for Name  </button>
+		</div>
+		
+			<!--The Table One Greeting By Name; An Input Form, Etc.-->
+			<div id="tableOneGreetByNameLayout" >
+				<p><input type="text" id="tableOneGreetByNameInput"></p>
+				<button id="tableOneSubmitName" class="buttonTypeA" onclick="playClickSound(),setTimeout(greetCustomerByName, 300, 0)">Submit</button>
+				<button id="tableOneGreetCustomerBackButton" class="buttonTypeB" onclick="playClickSound(), setTimeout(goBack,200,'customerGreetings',0)">Back</button>
+			</div>
+			
+		<!--The Table One Check Buttons-->
+		<div id="tableOneCheckButtons">
+			<button id="tableOneInitiateCheckByName" class="buttonTypeA" onmouseover="makeToolTipVisible(0,'CheckByName')" onmouseleave="clearToolTip(0)" onclick="playClickSound(),setTimeout(displayCheckByNameLayout,200,0),setTimeout(selectInputField,400,'Check',0)">Thanks, [Name]</button>
+			<button id="tableOneCheckForgotName" class="buttonTypeB" onmouseover="makeToolTipVisible(0,'CheckWithoutName')" onmouseleave="clearToolTip(0)" onclick="playClickSound(),clearToolTip(0),setTimeout(submitCheckForgotName,300,0)">Thanks, ....</button>
+		</div>
+		
+		<!--The Table One Check By Name; An Input Form, Etc.-->
+			<div id="tableOneCheckByNameLayout" >
+				<p><input type="text" id="tableOneCheckByNameInput"></p>
+				<button id="tableOneSubmitCheckByName" class="buttonTypeA" onclick="playClickSound(),setTimeout(submitCheckByName,300,0)">Submit</button>
+				<button id="tableOneSubmitCheckBackButton" class="buttonTypeB" onclick="playClickSound(),setTimeout(goBack,200,'customerChecks',0)">Back</button>
+			</div>
+			
+		<!--The Table One Response-->
+		<div>
+			<p id="tableOneReply">
+		</div>
+		
+		<!--The Table One Order Acknowledgement Button-->
+		<div id="tableOneOrderAcknowledgementLayout">
+			<button id="tableOneAcknowledgeOrder" class="buttonTypeB" onclick="playClickSound(),setTimeout(acknowledgeOrder,300,0)">Acknowledge</button>
+		</div>
+		
+		<!---Table One's Tooltip Text-->
+		<div class="tableOneToolTipText" id="tableOneToolTipText">Alpha</div>
+	</div>
+	
+	<!------------------->
+	<!--Row 3B: Table 2-->
+	<!------------------->
+	<div id="item3B" class="item3B">
+		<h2 class="tableHead">Table 2</h2>
+
+		<!--The Table Two Status Bar-->
+		<div>
+		<div id="myBar2" onmouseover="makeToolTipVisible(1,'Satisfaction')" onmouseleave="clearToolTip(1)">0</div>
+		</div>
+		
+		<!--The Table Two Image-->
+		<div class="flip-box">
+			<div id="flipBoxTableTwo" class="flipBoxTableTwo">
+				<div id="flip-box-front" class="flip-box-front">
+					<img id="tableTwoFront" src="Images/Restaurant_Images/TableBlue.png"></img>
+				<!--The Kitchen Image-->
+				</div>
+				<div id="flip-box-back" class="flip-box-back">
+					<img id="tableTwo" ondrop = "drop(event,1)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)"></img>
+				</div>
+			</div>
+		</div>
+		
+		<!--The Table Two Chat Box-->
+		<div id="theTableTwoChatBox">
+			<div class="rightTextBubble" id="tableTwoRight1"></div>
+			<div class="leftTextBubble" id="tableTwoLeft1"></div>
+			<div class="rightTextBubble" id="tableTwoRight2"></div>
+			<div class="leftTextBubble" id="tableTwoLeft2"></div>
+		</div>
+		
+		<!--The Table Two Greeting Buttons-->
+		<div id="tableTwoGreetingButtons">
+			<button id="tableTwoGreetByNameButton" class="buttonTypeA" onmouseover="makeToolTipVisible(1,'Greeting')" onmouseleave="clearToolTip(1)" onclick="playClickSound(),setTimeout(greetCustomerByNameLayout,200,1),setTimeout(selectInputField,400,'Greet',1)">Hello, [Name]</button>
+			<br>
+			<button id="tableTwoAskForNameButton" class="buttonTypeB" onmouseover="makeToolTipVisible(1,'AskForName')" onmouseleave="clearToolTip(1)" onclick="playClickSound(),clearToolTip(1),setTimeout(askForCustomerName,300,1)")>Ask for Name</button>
+		</div>
+		
+			<!--The Table Two Greeting By Name; An Input Form, Etc.-->
+			<div id="tableTwoGreetByNameLayout" >
+				<p><input type="text" id="tableTwoGreetByNameInput"></p>
+				<button id="tableTwoSubmitName" class="buttonTypeA" onclick="playClickSound(),setTimeout(greetCustomerByName,200,1)">Submit</button>
+				<button id="tableTwoGreetCustomerBackButton" class="buttonTypeB" onclick="playClickSound(),setTimeout(goBack,200,'customerGreetings',1)">Back</button>
+			</div>
+		
+		<!--The Table Two Check Buttons-->
+		<div id="tableTwoCheckButtons">
+			<button id="tableTwoInitiateCheckByName" class="buttonTypeA" onmouseover="makeToolTipVisible(1,'CheckByName')" onmouseleave="clearToolTip(1)" onclick="playClickSound(),setTimeout(displayCheckByNameLayout,300,1),setTimeout(selectInputField,400,'Check',1)">Thanks, [Name]</button>
+			<br>
+			<button id="tableTwoCheckForgotName" class="buttonTypeB" onmouseover="makeToolTipVisible(1,'CheckWithoutName')" onmouseleave="clearToolTip(1)"onclick="playClickSound(),clearToolTip(1), setTimeout(submitCheckForgotName,300,1)">Thanks, ....</button>
+		</div>
+		
+		<!--The Table Two Check By Name; An Input Form, Etc.-->
+			<div id="tableTwoCheckByNameLayout" >
+				<p><input type="text" id="tableTwoCheckByNameInput"></p>
+				<button id="tableTwoSubmitCheckByName" class="buttonTypeA" onclick="playClickSound(),setTimeout(submitCheckByName,300,1)">Submit</button>
+				<button id="tableTwoSubmitCheckBackButton" class="buttonTypeB" onclick="playClickSound(),setTimeout(goBack,200,'customerChecks',1)">Back</button>
+			</div>
+			
+		<!--The Table Two Response-->
+		<div>
+			<p id="tableTwoReply">
+		</div>
+		
+		<!--The Table Two Order Acknowledgement Button-->
+		<div id="tableTwoOrderAcknowledgementLayout" >
+			<button id="tableTwoAcknowledgeOrder" class="buttonTypeB" onclick="playClickSound(),setTimeout(acknowledgeOrder,200,1)">Acknowledge</button>
+		</div>
+		
+		<!---Table Two's Tooltip Text-->
+		<div class="tableTwoToolTipText" id="tableTwoToolTipText">Beta</div>
+	</div>
+	
+	<!------------------->
+	<!--Row 3C: Table 3-->
+	<!------------------->
+	<div id="item3C" class="item3C">
+		<h2 class="tableHead">Table 3</h2>
+		
+		<!--The Table Three Status Bar-->
+		<div>
+		<div id="myBar3" onmouseover="makeToolTipVisible(2,'Satisfaction')" onmouseleave="clearToolTip(2)">0</div>
+		</div>
+		<div class="flip-box">
+			<div id="flipBoxTableThree" class="flipBoxTableThree">
+				<div id="flip-box-front" class="flip-box-front">
+					<img id="tableThreeFront" src="Images/Restaurant_Images/TableBlue.png"></img>
+				<!--The Kitchen Image-->
+				</div>
+				<div id="flip-box-back" class="flip-box-back">
+					<img id="tableThree" ondrop = "drop(event,2)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)"></img>
+				</div>
+			</div>
+		</div>
+		
+		<!--The Table Three Chat Box-->
+		<div id="theTableThreeChatBox">
+			<div class="rightTextBubble" id="tableThreeRight1"></div>
+			<div class="leftTextBubble" id="tableThreeLeft1"></div>
+			<div class="rightTextBubble" id="tableThreeRight2"></div>
+			<div class="leftTextBubble" id="tableThreeLeft2"></div>
+		</div>
+		
+		<!--The Table Three Greeting Buttons-->
+		<div id="tableThreeGreetingButtons">
+			<button id="tableThreeGreetByNameButton" class="buttonTypeA" onmouseover="makeToolTipVisible(2,'Greeting')" onmouseleave="clearToolTip(2)" onclick="playClickSound(),setTimeout(greetCustomerByNameLayout,200,2),setTimeout(selectInputField,400,'Greet',2)">Hello, [Name]</button>
+			<br>
+			<button id="tableThreeAskForNameButton" class="buttonTypeB" onmouseover="makeToolTipVisible(2,'AskForName')" onmouseleave="clearToolTip(2)" onclick="playClickSound(),clearToolTip(2),setTimeout(askForCustomerName,300,2)">Ask for Name</button>
+		</div>
+		
+			<!--The Table Three Greeting By Name; An Input Form, Etc.-->
+			<div id="tableThreeGreetByNameLayout" >
+				<p><input type="text" id="tableThreeGreetByNameInput"></p>
+				<button id="tableThreeSubmitName" class="buttonTypeA" onclick="playClickSound(),setTimeout(greetCustomerByName,200,2)">Submit</button>
+				<button id="tableThreeGreetCustomerBackButton" class="buttonTypeB" onclick="playClickSound(),setTimeout(goBack,200,'customerGreetings',2)">Back</button>
+			</div>
+		
+		<!--The Table Three Check Buttons-->
+		<div id="tableThreeCheckButtons">
+			<button id="tableThreeInitiateCheckByName" class="buttonTypeA" onmouseover="makeToolTipVisible(2,'CheckByName')" onmouseleave="clearToolTip(2)"onclick="playClickSound(),setTimeout(displayCheckByNameLayout,200,2),setTimeout(selectInputField,400,'Check',2)">Thanks, [Name]</button>
+			<br>
+			<button id="tableThreeCheckForgotName" class="buttonTypeB" onmouseover="makeToolTipVisible(2,'CheckWithoutName')" onmouseleave="clearToolTip(2)" onclick="playClickSound(),clearToolTip(2), setTimeout(submitCheckForgotName,300,2)">Thanks, ....</button>
+		</div>
+		
+		<!--The Table Three Check By Name; An Input Form, Etc.-->
+			<div id="tableThreeCheckByNameLayout" >
+				<p><input type="text" id="tableThreeCheckByNameInput"></p>
+				<button id="tableThreeSubmitCheckByName" class="buttonTypeA" onclick="playClickSound(),setTimeout(submitCheckByName,300,2)">Submit</button>
+				<button id="tableThreeSubmitCheckBackButton" class="buttonTypeB" onclick="playClickSound(),setTimeout(goBack,200,'customerChecks',2)">Back</button>
+			</div>
+
+		<!--The Table Three Response-->
+		<div>
+			<p id="tableThreeReply">
+		</div>	
+		
+		<!--The Table Three Order Acknowledgement Button-->
+		<div id="tableThreeOrderAcknowledgementLayout" >
+			<button id="tableThreeAcknowledgeOrder" class="buttonTypeB" onclick="playClickSound(),setTimeout(acknowledgeOrder,200,2)">Acknowledge</button>
+		</div>
+		
+		<!---Table Three's Tooltip Text-->
+		<div class="tableThreeToolTipText" id="tableThreeToolTipText">Three</div>
+	</div>
+	
+	<!------------------->
+	<!--Row 3D: Table 4-->
+	<!------------------->
+	<div id="item3D" class="item3D">
+		<h2 class="tableHead">Table 4</h2>
+		<!--The Table Four Status Bar-->
+		<div>
+		<div id="myBar4" onmouseover="makeToolTipVisible(3,'Satisfaction')" onmouseleave="clearToolTip(3)">0</div>
+		</div>
+		<div class="flip-box">
+			<div id="flipBoxTableFour" class="flipBoxTableFour">
+				<div id="flip-box-front" class="flip-box-front">
+					<img id="tableFourFront" src="Images/Restaurant_Images/TableBlue.png"></img>
+				</div>
+				<div id="flip-box-back" class="flip-box-back">
+					<img id="tableFour" ondrop = "drop(event,3)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)"></img>
+				</div>
+			</div>
+		</div>
+		
+		<!--The Table Four Chat Box-->
+		<div id="theTableFourChatBox">
+			<div class="rightTextBubble" id="tableFourRight1"></div>
+			<div class="leftTextBubble" id="tableFourLeft1"></div>
+			<div class="rightTextBubble" id="tableFourRight2"></div>
+			<div class="leftTextBubble" id="tableFourLeft2"></div>
+		</div>
+		
+		<!--The Table Four Greeting Buttons-->
+		<div id="tableFourGreetingButtons">
+			<button id="tableFourGreetByNameButton" class="buttonTypeA" onmouseover="makeToolTipVisible(3,'Greeting')" onmouseleave="clearToolTip(3)" onclick="playClickSound(),setTimeout(greetCustomerByNameLayout,200,3),setTimeout(selectInputField,400,'Greet',3)">Hello, [Name]</button>
+			<br>
+			<button id="tableFourAskForNameButton" class="buttonTypeB" onmouseover="makeToolTipVisible(3,'AskForName')" onmouseleave="clearToolTip(3)" onclick="playClickSound(),clearToolTip(3),setTimeout(askForCustomerName,300,3)">Ask for Name</button>
+		</div>
+		
+			<!--The Table Four Greeting By Name; An Input Form, Etc.-->
+			<div id="tableFourGreetByNameLayout" >
+				<p><input type="text" id="tableFourGreetByNameInput"></p>
+				<button id="tableFourSubmitName" class="buttonTypeA" onclick="playClickSound(),setTimeout(greetCustomerByName,200,3)">Submit</button>
+				<button id="tableOneGreetCustomerBackButton" class="buttonTypeB" onclick="playClickSound(),setTimeout(goBack,200,'customerGreetings',3)">Back</button>
+			</div>
+			
+		<!--The Table Four Check Buttons-->
+		<div id="tableFourCheckButtons">
+			<button id="tableFourInitiateCheckByName" class="buttonTypeA" onmouseover="makeToolTipVisible(3,'CheckByName')" onmouseleave="clearToolTip(3)"onclick="playClickSound(),setTimeout(displayCheckByNameLayout,300,3),setTimeout(selectInputField,400,'Check',3)">Thanks, [Name]</button>
+			<br>
+			<button id="tableFourCheckForgotName" class="buttonTypeB" onmouseover="makeToolTipVisible(3,'CheckWithoutName')" onmouseleave="clearToolTip(3)"onclick="playClickSound(),clearToolTip(3), setTimeout(submitCheckForgotName,300,3)">Thanks, ....</button>
+		</div>
+		
+		<!--The Table Four Check By Name; An Input Form, Etc.-->
+			<div id="tableFourCheckByNameLayout" >
+				<p><input type="text" id="tableFourCheckByNameInput"></p>
+				<button id="tableFourSubmitCheckByName" class="buttonTypeA" onclick="playClickSound(),setTimeout(submitCheckByName,300,3)">Submit</button>
+				<button id="tableFourSubmitCheckBackButton" class="buttonTypeB" onclick="playClickSound(),goBack('customerChecks',3)">Back</button>
+			</div>
+		<!--The Table Four Response-->
+		<div>
+			<p id="tableFourReply">
+		</div>		
+		<!--The Table Four Order Acknowledgement Button-->
+		<div id="tableFourOrderAcknowledgementLayout" >
+			<button id="tableFourAcknowledgeOrder" class="buttonTypeB" onclick="playClickSound(),setTimeout(acknowledgeOrder,200,3)">Acknowledge</button>
+		</div>
+		
+		<!---Table Four's Tooltip Text-->
+		<div class="tableFourToolTipText" id="tableFourToolTipText">Alpha</div>
+	</div>
+	
+	<!------------------->
+	<!--Row 3E: Kitchen-->
+	<!------------------->
+	<div class="item3E">
+		<h2 class="tableHead">Kitchen</h2>
+		
+		<!--The Table Four Status Bar-->
+		<div>
+		<div id="myBar5">Closed</div>
+		</div>
+		<div class="flip-box">
+			<div id="flip-box-inner" class="flip-box-inner">
+				<div id="flip-box-back" class="flip-box-back">
+				<img id="theChef" src="Images/Restaurant_Images/OpenSign.png"></img>
+				
+				<!--The Kitchen Image-->
+				</div>
+				<div id="flip-box-front" class="flip-box-front">
+					<img id="theKitchenImage" src="Images/Restaurant_Images/ClosedSign.png" draggable="true" onmousedown="clearToolTip(4), makeToolTipVisible(4,'deliveryStage2'), playClickSound()" onmouseup="makeToolTipVisible(4,'deliveryStage1'), playClickSound()" ondragstart="dragStart(event)"></img>
+				</div>
+			</div>
+		</div>
+		
+		<!--'Open for Business' Button-->
+		<button id="openButton" class="buttonTypeA" onclick="flipCard('theKitchen','back'), clearButton('open'), clearToolTip(4), setTimeout(advanceTime,1000)">Open for Business</button>
+	
+		<!---Table One's Tooltip Text-->
+		<div class="kitchenToolTipText" id="kitchenToolTipText">Alpha</div>
+
+	</div>
+	
+<!----
+------
+Script
+------
+----->
+<script src="RestaurantGame.js"></script>
+</body>
+</html>
+	
+	

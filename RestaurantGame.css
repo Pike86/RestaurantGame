@@ -1,0 +1,576 @@
+/*Color Guide*/
+/*
+	Non-Active Green Button
+		Face - 			#1E7D00
+		Face Border - 	#48A65D
+		Body - 			#1D4225
+		
+	Hover Green Button
+		Face - 			#165C00
+		Face Border -	#347843
+		Body - 			#0A2B00
+*/
+
+/*Color Palette*/
+/*https://coolors.co/f9dbbd-ffa5ab-da627d-a53860-450920*/
+:root{
+	--richBlack: #0D1B2A;
+	--oxfordBlue: #1B263B;
+	--YinMnBlue: #415A77;
+	--silverLakeBlue: #778DA9;
+	--platinum: #E0E1DD;
+	--penaltyRed: #b30000;
+	--bonusGreen: #00cc99;
+}
+	
+.item1 { 
+	grid-area: header;
+	background-color:var(--richBlack);
+	color:var(--platinum);
+	text-align:center;
+	width: 0px; min-width: 100%;
+	font-size:0.75em;
+	}
+	
+.item2A{
+	grid-area: subheaderLeft;
+	background-color:var(--YinMnBlue);
+	text-align:center;
+	font-size:1em;
+	}
+	
+	#stageTable
+	{
+		box-shadow: 0.15em 0.15em 0.15em black;
+	}
+	
+.item2B { 
+	grid-area: subheaderRight; 
+	background-color:var(--YinMnBlue);
+	text-align:center;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	}
+
+/*========================*/
+/*========================*/
+/*===Buttons and Inputs===*/
+/*========================*/
+/*========================*/
+
+	/*-------------*/
+	/*---Buttons---*/
+	/*-------------*/
+	
+		/*----------*/
+		/*YInMn Blue*/
+		/*----------*/
+		.buttonTypeA{
+			background:var(--YinMnBlue);
+			width:10vw;
+			height:3.75vh;
+			margin:1px;
+			font-size:0.75em;
+			font-weight:bold;
+			border-radius:10px;
+			border:solid 3px var(--richBlack);
+			/*Shadow*/
+			box-shadow: 0 1vh #2d3f52;
+			color:var(--platinum);
+			margin-bottom:1.5vh;
+		}
+		
+		.buttonTypeA:hover{
+			background:#3d4b63;
+			box-shadow: 0 1vh #243242;
+			transition-duration:0.4s;
+			cursor:pointer;
+		}
+		
+		.buttonTypeA:active{
+			transition-duration: 0.06s;
+			box-shadow: 0 0.15vh #243242;
+			transform:translateY(0.9vh);
+		}
+		
+		/*----------------*/
+		/*Silver Lake Blue*/
+		/*----------------*/
+		.buttonTypeB{
+			background-color:var(--silverLakeBlue);
+			width:10vw;
+			height:3.75vh;
+			margin:2px;
+			font-size:0.75em;
+			font-weight:bold;
+			border-radius:10px;
+			border:solid 3px var(--richBlack);
+			/*Shadow*/
+			box-shadow: 0 1vh #586f8d;
+			color:var(--platinum);
+		}
+		
+		.buttonTypeB:hover{
+			background:#627c9d;
+			box-shadow: 0 1vh #4f637d;
+			transition-duration:0.4s;
+			cursor:pointer;
+		}
+		
+		.buttonTypeB:active{
+			transition-duration: 0.06s;
+			box-shadow: 0 0.15vh #4f637d;
+			transform:translateY(0.9vh);
+		}
+
+/*=====================*/		
+/*=====================*/
+/*===Grid Formatting===*/
+/*=====================*/
+/*=====================*/
+
+	/*--------------*/
+	/*--Table Head--*/
+	/*--------------*/
+	.tableHead{
+		color:var(--richBlack);
+		font-size:1.05em;
+	}
+	
+	/*--------------*/
+	/*--Name Input--*/
+	/*--------------*/	
+	[id$="NameInput"]
+	{
+		width:9.75vw;
+		height:4.2vh;
+		box-shadow:1.5px 1.5px 1.5px #999;
+		border-radius:10px;
+		text-align:center;
+		font-size:1em;
+		background-image:linear-gradient(#f2f2f2, #e6e6e6);
+		font-family:"Ink Free";
+	}
+	
+	/*----------------------------*/
+	/*---Color/Satisfaction Bar---*/
+	/*----------------------------*/
+	[id^="myBar"]{
+		height: 3.75vh;
+		display:flex;
+		justify-content:center;
+		align-items: center;
+		background-color:var(--silverLakeBlue);
+		color:var(--platinum);
+		font-size:1.15em;
+	}
+	
+	input[type=text]{
+		width:50%;
+		height:5vh;
+		border-radius:10px;
+		text-align:center;
+		height:3.75vh;
+		width:9.75vw;
+	}
+	
+	/*-------------------------------------------*/
+	/*---Table's Reply; 'Awaiting Delivery...'---*/
+	/*-------------------------------------------*/
+	[id$="Reply"]
+	{
+		padding:0.1em; margin:0.1em; font-size:0.75em;
+	}
+
+	/*-------------*/
+	/*---Tip Jar---*/
+	/*-------------*/
+	#theTips
+	{
+		color:var(--platinum);
+		font-size:1em;
+	}
+
+	/*----------------*/
+	/*---Table Divs---*/
+	/*----------------*/
+	#tableOne, #tableTwo, #tableThree, #tableFour
+	{
+		border-radius:7px;
+		width: 10vw;
+		height: 30vh;
+		margin-bottom: 1vh;
+		box-shadow:1.5px 1.5px 1.5px #999;
+	}
+		
+	#theKitchenImage, #theChef, #tableFourFront, #tableThreeFront, #tableTwoFront, #tableOneFront, #closedSignBevel, #openSignBevel
+	{
+		border-radius:7px;
+		width: 10vw;
+		height: 30vh;
+		margin-bottom: 1vh;
+		box-shadow:1.5px 1.5px 1.5px #999;
+	}
+
+/*============*/		
+/*============*/
+/*===Tables===*/
+/*============*/
+/*============*/
+
+	/*-------------*/
+	/*---Table 1---*/
+	/*-------------*/
+	.item3A{
+		grid-area: table1;
+		background-color:var(--platinum);
+		text-align:center;
+		width: 0px; min-width: 18.75vw;
+		height:76vh;
+		}
+			#tableOneGreetByNameLayout{
+				display:none;
+			}
+			
+			#tableOneGreetingButtons{
+				display:none;
+			}
+			
+			#tableOneAskForNameLayout{
+				display:none;
+			}
+			
+			#tableOneOrderAcknowledgementLayout{
+				display:none;
+			}
+			
+			#deliverToTableOne{
+				display:none;
+			}
+			
+			#tableOneCheckButtons{
+				display:none;
+			}
+			
+			#tableOneCheckByNameLayout{
+				display:none;
+			}
+
+	/*-------------*/
+	/*---Table 2---*/
+	/*-------------*/
+	.item3B{
+		grid-area: table2;
+		background-color:var(--platinum);
+		text-align:center;
+		width: 0px; min-width: 18.75vw;
+		height:76vh;
+		}
+			#tableTwoGreetByNameLayout{
+				display:none;
+			}
+			
+			#tableTwoGreetingButtons{
+				display:none;
+			}
+			
+			#tableTwoAskForNameLayout{
+				display:none;
+			}
+			
+			#tableTwoOrderAcknowledgementLayout{
+				display:none;
+			}
+			
+			#deliverToTableTwo{
+				display:none;
+			}
+			
+			#tableTwoCheckButtons{
+				display:none;
+			}
+			
+			#tableTwoCheckByNameLayout{
+				display:none;
+			}
+
+	/*-------------*/
+	/*---Table 3---*/
+	/*-------------*/
+	.item3C{
+		grid-area: table3;
+		background-color:var(--platinum);
+		text-align:center;
+		width: 0px; min-width: 18.75vw;
+		height:76vh;
+		}
+		
+			#tableThreeGreetByNameLayout{
+				display:none;
+			}
+			
+			#tableThreeGreetingButtons{
+				display:none;
+			}
+			
+			#tableThreeAskForNameLayout{
+				display:none;
+			}
+			
+			#tableThreeOrderAcknowledgementLayout{
+				display:none;
+			}
+			
+			#deliverToTableThree{
+				display:none;
+			}
+			
+			#tableThreeCheckButtons{
+				display:none;
+			}
+			
+			#tableThreeCheckByNameLayout{
+				display:none;
+			}
+
+	/*-------------*/
+	/*---Table 4---*/
+	/*-------------*/		
+	.item3D{
+		grid-area: table4;
+		background-color:var(--platinum);
+		text-align:center;
+		width: 0px; min-width: 18.75vw;
+		height:76vh;
+		}
+		
+			#tableFourGreetByNameLayout{
+				display:none;
+			}
+			
+			#tableFourGreetingButtons{
+				display:none;
+			}
+			
+			#tableFourAskForNameLayout{
+				display:none;
+			}
+			
+			#tableFourOrderAcknowledgementLayout{
+				display:none;
+			}
+			
+			#deliverToTableFour{
+				display:none;
+			}
+			
+			#tableFourCheckButtons{
+				display:none;
+			}
+			
+			#tableFourCheckByNameLayout{
+				display:none;
+			}
+			
+	/*-------------*/
+	/*---Kitchen---*/
+	/*-------------*/
+	.item3E{
+		grid-area: kitchen;
+		background-color:var(--platinum);
+		text-align:center;
+		width: 0px; min-width: 18.75vw;
+		height:76vh;
+	}
+
+			#theKitchenWindow{
+				display:none;
+			}
+			
+			#theKitchenImage{
+				
+			}
+			
+			#openButton{
+			}
+			
+			#theChefCommentLayout{
+				display:none;
+			}
+		
+	
+
+.grid-container{
+	  display: grid;
+	  grid-template-areas:
+		'header header header header header'
+		'subheaderLeft subheaderLeft subheaderLeft subheaderRight subheaderRight'
+		'table1 table2 table3 table4 kitchen'
+		'table1 table2 table3 table4 kitchen'
+		'table1 table2 table3 table4 kitchen'
+		'table1 table2 table3 table4 kitchen'
+		'table1 table2 table3 table4 kitchen';
+	  gap: 0.5em;
+	  padding: 0.5em;
+	  background-color:var(--richBlack);
+	  max-height:96vh;
+	  overflow-y:hidden;
+	  overflow-x:hidden;
+	}
+
+/*==============*/
+/*===Flip Box===*/
+/*==============*/
+
+	/*This is where the image flipping 'lives'*/
+	.flip-box
+	{
+		background-color: transparent;
+		border-radius:7px;
+		width: 10vw;
+		height: 30vh;
+		margin-bottom: 3vh;
+		perspective:1000px;
+	}
+
+	.flip-box-inner, .flipBoxTableOne, .flipBoxTableTwo, .flipBoxTableThree, .flipBoxTableFour {
+	  position: relative;
+	  width: 10vw;
+	  height: 30vh;
+	  margin-bottom: 3vh;
+	  margin-top: 3vh;
+	  margin-left:4.5vw;
+	  text-align: center;
+	  transition: transform 0.8s;
+	  transform-style: preserve-3d;
+	  background-color:tomato;
+	  border-radius:7px;
+	}
+
+	.flip-box-front, .flip-box-back, .flip-box-other{
+	  position: absolute;
+	  border-radius:7px;
+	  width: 10vw;
+	  height: 30vh;
+	  box-shadow:1.5px 1.5px 1.5px #999;
+	  -webkit-backface-visibility: hidden;
+	  backface-visibility: hidden;
+	}
+
+	/*Style the Front Side First* (This is a fallback if the image is missing)*/
+	.flip-box-front {
+		background-color: var(--YinMnBlue);
+		color: var(--richBlack);
+	}
+
+	/*Style the Back Side Now. Now that this is already 'flipped' 180 degrees, so is effectively invisible*/
+	.flip-box-back {
+		background-color: var(--YinMnBlue);
+		color: var(--platinum);
+		transform: rotateY(180deg);
+	}
+
+
+/*==================*/
+/*===Text Bubbles===*/
+/*==================*/
+
+	/*----------------------*/
+	/*---Left Text Bubble---*/
+	/*----------------------*/
+	.leftTextBubble{
+	background-color:var(--YinMnBlue);
+	transition-duration:0.4s;
+	color:var(--platinum);
+	border-radius:0.65em;
+	margin-top:0.55vh;
+	margin-bottom:0.55vh;
+	width:90%;
+	box-shadow:1.5px 1.5px 1.5px #999;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	font-size:0.75em;
+	}
+	
+	/*-----------------------*/
+	/*---Right Text Bubble---*/
+	/*-----------------------*/
+	.rightTextBubble{
+	margin-left:10.5%;
+	background-color:var(--richBlack);
+	transition-duration:0.4s;
+	color:var(--platinum);
+	border-radius:0.65em;
+	margin-top:0.55vh;
+	margin-bottom:0.55vh;
+	width:95%;
+	box-shadow:1.5px 1.5px 1.5px #999;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	font-size:0.75em;
+	}
+	
+	/*--------------*/
+	/*---Chat Box---*/
+	/*--------------*/
+	#theKitchenChatBox, #theTableOneChatBox, #theTableTwoChatBox, #theTableThreeChatBox, #theTableFourChatBox
+	{
+		width:14vw;
+		height:vh;
+		margin-left:8%;
+	}
+
+/*===========================*/
+/*===Tooltip Functionality===*/
+/*===========================*/
+.tooltip{
+	position: relative;
+	display: inline-block;
+}
+
+[id$="ToolTipText"]{
+	/*visibility:visible;*/
+	/*width: 120px;*/
+	/*background-color: var(--richBlack);*/
+	/*color:var(--platinum);*/
+	text-align: center;
+	border-radius: 0.65em;
+	padding: 0.65em 0.65em;
+	z-index: 1;
+	opacity: 0;
+	margin:4em 2em 5em 2em;
+	font-size:0.85em;
+	box-shadow:0.25em 0.25em 0.25em #999;
+	border:solid 0.25em var(--richBlack);
+	background-color:var(--YinMnBlue);
+	color:var(--platinum);
+}
+
+/*========================*/
+/*===Status Breadcrumbs===*/
+/*========================*/
+#stageTable{
+	margin: 0.55% 25% 0.55% 25%;
+	font-size:0.85em;
+	border:solid var(--platinum) 0.25em;
+}
+
+.stageBox{
+	min-width:10vw;
+	background-color:var(--platinum);
+	font:var(--richBlack);
+}
+
+.stageBoxCheck{
+	visibility:hidden;
+	font-weight:bold;
+	background-color:var(--richBlack);
+	border:solid 0.05em var var(--platinum); 
+}
+
+/*==
+Tips
+==*/
