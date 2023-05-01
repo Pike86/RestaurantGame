@@ -400,8 +400,31 @@
 			}
 		
 	
+@media(max-width:800px)
+{
+	body 
+	{
+    text-align: center;
+	}
+	
+	.small-screen-message
+	{
+		display: block;
+		background-color: var(--richBlack);
+		color: white;
+		padding: 1em;
+		border-radius: 0.25em;
+	}
+	
+	.grid-container
+	{
+		display:none;
+	}
+}
 
-.grid-container{
+@media(min-width:801px)
+{
+	.grid-container{
 	  display: grid;
 	  grid-template-areas:
 		'header header header header header'
@@ -418,6 +441,13 @@
 	  overflow-y:hidden;
 	  overflow-x:hidden;
 	}
+	
+	.small-screen-message
+	{
+		display: none;
+	}
+}
+
 
 /*==============*/
 /*===Flip Box===*/
